@@ -1,0 +1,52 @@
+﻿@model Employee_verification.Models.tblemployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .card-text {
+            font-weight:500;
+            font-size:1.1rem;
+        }
+
+        .subtitle {
+            font-weight:400;
+        }
+        .container {
+            width:fit-content;
+        }
+    </style>
+
+</head>
+<body>
+    <div class="container my-4">
+        <div class="card border-info">
+            <div class="card-header text-white bg-info">
+                <h4 class="card-title">Welcome, MR. @Model.employee_name</h4>
+            </div>
+
+            <div class="card-body">
+                <p class="subtitle"><span class="card-text">Employee Code: </span>@Model.employee_code</p>
+                <p class="subtitle"><span class="card-text">Email Address: </span>@Model.email_address</p>
+                <p class="subtitle"><span class="card-text">Mobile Number: </span>@Model.mobile_number</p>
+                <p class="subtitle"><span class="card-text">Designation: </span>@Model.designation</p>
+                <p class="subtitle"><span class="card-text">Salary: </span>@Model.salary</p>
+            </div>
+
+            <div class="card-footer">
+                @Html.ActionLink("Logout", "logout", "Login", new { @class = "btn btn-outline-primary btn-block"})
+            </div>
+        </div>
+
+    </div>
+
+</body>
+</html>
+

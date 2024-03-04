@@ -1,0 +1,96 @@
+﻿@model Employee_verification.Models.tblemployee
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>OTP_verification</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <style>
+        .container {
+            width:22vw;
+        }
+        .card {
+            margin: auto;
+            margin-top: 50px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .card-header {
+            background-color: #7071E8;
+            color: #fff;
+        }
+
+        .card-title {
+            font-family: 'Times New Roman';
+            font-size: 1.5rem;
+            font-weight: 600;
+            text-align: center;
+        }
+
+        .card-body {
+            padding: 20px;
+        }
+
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .btn-login {
+            background-color: #4CAF50;
+            color: #fff;
+        }
+
+        .msg h5 {
+            text-align: center;
+            font-size: 1.1rem;
+            color: #ff0000; 
+        }
+    </style>
+</head>
+
+<body>
+   
+        <div class="container my-4">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-title">OTP Verification</div>
+                </div>
+               
+                <div class="card-body">
+                    @using (Html.BeginForm("SendOTP", "Login", FormMethod.Post))
+                    {
+                        <div class="form-group">
+                            <button class="btn btn-outline-warning btn-block" type="submit" name="action" value="send">Send OTP</button>
+                        </div>
+
+
+                     }
+
+                    @using (Html.BeginForm("VerifyOTP", "Login", FormMethod.Post))
+                    {
+
+                        <div class="form-group">
+                            <label>Enter OTP</label>
+                            @Html.TextBoxFor(e => e.otp, new { @class = "form-control" })
+                        </div>
+
+                        <div class="form-group">
+                            <button class="btn btn-outline-primary btn-block" type="submit" name="action" value="verify">Verify</button>
+                        </div>
+
+                         <div class="msg">
+                           <h5>@ViewBag.msg</h5>
+                        </div>
+                     }
+                </div>
+            </div>
+        </div>
+
+    </body>
+</html>
